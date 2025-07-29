@@ -17,12 +17,12 @@ Math.random() * 255
   return (
     <>
       <div className="h-screen w-[15%] bg-gray-300 p-5 text-center">
-        <a
+        <Link
           className="text-center px-4 py-2 text-blue-300 border border-blue-300 rounded hover:text-blue-600"
-          href=""
+          to={"/create"}
         >
           Add new product
-        </a>
+        </Link>
 
         <hr className="mt-10 w-[100%] border-gray-400" />
         <div className="flex flex-col items-center justify-center"> 
