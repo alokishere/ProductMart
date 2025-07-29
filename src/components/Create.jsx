@@ -1,23 +1,29 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
+import { ProductsContext } from "./utils/Context";
+import { nanoid } from "nanoid";
 const Create = () => {
+    const [products, setProducts] = useContext(ProductsContext)
   const [title, settitle] = useState("");
   const [image, setimage] = useState("");
   const [category, setcategory] = useState("");
   const [price, setprice] = useState("");
   const [description, setdescription] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newProduct = {
+    const Product = {
+        id: nanoid(),
       title,
       image,
       category,
       price,
       description,
     };
-    console.log("Product Created:", newProduct);
-    // You can send this to an API using fetch or axios
+   setProducts([...products, Product])
+    // settitle("");
+    // setimage("");
+    // setcategory("");
+    // setprice("");
+    // setdescription("");
   };
 
   return (
