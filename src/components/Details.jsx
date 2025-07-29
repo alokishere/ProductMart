@@ -1,12 +1,12 @@
 import axios from "./utils/axios";
 import React, { useEffect, useState } from "react";
 import { set } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 
 const Details = () => {
   const { id } = useParams();
-
+const navigate = useNavigate()
   const [products, setproducts] = useState(null)
   const getSingleProducts = async () => {
     try {
@@ -23,6 +23,8 @@ const Details = () => {
   return ( products?
     <div>
       <h1 className="text-center text-2xl font-bold mt-10">Product Details</h1>
+
+                  <Link onClick={()=>navigate(-1)} className="absolute left-[20%] top-[3%] text-2xl border-b text-nowrap px-4 py-2 text-red-600">⬅ Go Back</Link>
       <div className="flex justify-center mt-5">
         <div className="flex items-center justify-center p-5 shadow rounded w-[70%] gap-10">
           <img
